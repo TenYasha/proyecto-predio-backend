@@ -17,7 +17,6 @@ public class ProyectoJwtApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoJwtApplication.class, args);
 	}
-/// afsaffa
 
 }
 	
