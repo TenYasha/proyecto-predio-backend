@@ -61,15 +61,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable()
 		    .exceptionHandling()//como manejar exepciones
+
+
 		    .authenticationEntryPoint(jwtAuthenticationEntryPoint)//para manejar excepcion de error
 		    .and()
+				.cors()
+				.and()
 		    .sessionManagement()
 		    .sessionCreationPolicy(SessionCreationPolicy.STATELESS) //no maneje sesiones y que cada solicitud sea autónoma
 		    .and()
 		    .authorizeRequests()
 		    .antMatchers("/services/**").permitAll()
-		    .antMatchers("/usuario/**").permitAll()
-				.antMatchers("/contribuyente/**").permitAll()
+		    .antMatchers("/usuario/**").authenticated()
+				.antMatchers("/contribuyente/**").authenticated()
 				.antMatchers(HttpMethod.OPTIONS).permitAll()
 		  // .antMatchers("/api/**").permitAll()
 		    .anyRequest()
@@ -84,7 +88,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Bean
 	CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration();
-		configuration.setAllowedOrigins(Arrays.asList("*"));
+		configuration.setAllowedOrigins(Arrays.asList("http://10.4.1.6:8180"));
 		configuration.setAllowedMethods(Arrays.asList("*"));
 		configuration.setAllowedHeaders(Arrays.asList("*"));
 		configuration.setAllowCredentials(true);

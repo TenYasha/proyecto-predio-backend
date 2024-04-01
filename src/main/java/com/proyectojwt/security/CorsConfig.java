@@ -15,7 +15,7 @@ public class CorsConfig extends WebMvcConfigurerAdapter {
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedOrigin("*"); // Permitir todas las origenes
+        config.addAllowedOrigin("http://10.4.1.6:8180"); // Permitir todas las origenes
         config.addAllowedMethod("*"); // Permitir todos los métodos HTTP
         config.addAllowedHeader("*"); // Permitir todos los encabezados
         source.registerCorsConfiguration("/**", config);
@@ -24,7 +24,7 @@ public class CorsConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("*")  // Ajusta el origen de acuerdo a tu aplicación Angular
+                .allowedOrigins("http://10.4.1.6:8180")  // Ajusta el origen de acuerdo a tu aplicación Angular
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
     }
 

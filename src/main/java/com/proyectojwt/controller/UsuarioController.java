@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/usuario")
-@CrossOrigin("*")
+@CrossOrigin("http://10.4.1.6:8180")
 public class UsuarioController {
 
     @Autowired
