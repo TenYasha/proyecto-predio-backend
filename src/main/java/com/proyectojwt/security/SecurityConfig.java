@@ -72,8 +72,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		    .and()
 		    .authorizeRequests()
 		    .antMatchers("/services/**").permitAll()
-		    .antMatchers("/usuario/**").authenticated()
-				.antMatchers("/contribuyente/**").authenticated()
+		    .antMatchers("/usuario/**").permitAll()
+				.antMatchers("/contribuyente/**").permitAll()
 				.antMatchers(HttpMethod.OPTIONS).permitAll()
 		  // .antMatchers("/api/**").permitAll()
 		    .anyRequest()
@@ -88,7 +88,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Bean
 	CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration();
-		configuration.setAllowedOrigins(Arrays.asList("http://10.4.1.6:8180"));
+		configuration.setAllowedOrigins(Arrays.asList("*"));
 		configuration.setAllowedMethods(Arrays.asList("*"));
 		configuration.setAllowedHeaders(Arrays.asList("*"));
 		configuration.setAllowCredentials(true);
