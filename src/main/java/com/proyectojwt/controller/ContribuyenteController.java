@@ -28,9 +28,11 @@ public class ContribuyenteController {
 
     @GetMapping("/lista-contribuyente")
     public ResponseEntity<List<Contribuyente>> listaContribuyente(){
-        List<Contribuyente> lista = contribuyenteService.listarContribuyente();
+        List<Contribuyente> lista = contribuyenteService
+                .listarContribuyente();
         return  new ResponseEntity<>(lista, HttpStatus.OK);
     }
+
     @PostMapping("/agregar-contribuyente")
     public ResponseEntity<Map<String,Object>> register(@Valid @RequestBody Contribuyente contribuyente){
         Map<String, Object> salida = new HashMap<>();

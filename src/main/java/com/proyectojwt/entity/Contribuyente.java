@@ -18,7 +18,7 @@ public class Contribuyente {
     private String nom_contribuyente;
     private String ape_contribuyente;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "id_tipo_contribuyente")
     private Tipo_contribuyente tipo_contribuyente;
 }

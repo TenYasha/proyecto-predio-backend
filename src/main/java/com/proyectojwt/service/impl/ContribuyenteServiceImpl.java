@@ -16,12 +16,14 @@ public class ContribuyenteServiceImpl implements IContribuyenteService {
 
     @Override
     public Contribuyente guardar(Contribuyente conti) {
+
         return contribuyenteRepository.save(conti);
     }
 
     @Override
     public Contribuyente buscar(String nom) {
-        return contribuyenteRepository.findById(Integer.valueOf(nom)).orElse(null);
+        return contribuyenteRepository
+                .findById(Integer.valueOf(nom)).orElse(null);
     }
 
     @Override
@@ -32,6 +34,7 @@ public class ContribuyenteServiceImpl implements IContribuyenteService {
 
     @Override
     public void eliminar_usuario(int id) {
-contribuyenteRepository.deleteById(id);
+
+        contribuyenteRepository.deleteById(id);
     }
 }

@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.*;
 public class UsuarioController {
 
     @Autowired
-    IUsuarioService ususervice;
+    private IUsuarioService ususervice;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -37,7 +37,7 @@ public class UsuarioController {
     private UsuarioDetails userDetailsService;
 
     @Autowired
-    IRolService rolservice;
+    private IRolService rolservice;
 
     //Rol
     @GetMapping("/lista-rol")
@@ -84,6 +84,7 @@ public class UsuarioController {
         }
         return new ResponseEntity<>(usu, HttpStatus.OK);
     }
+
     @PostMapping("/registrar")
     public ResponseEntity<Map<String, Object>> registrar(@Valid @RequestBody Usuario usu) {
         Map<String, Object> salida = new HashMap<>();

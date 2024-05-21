@@ -32,7 +32,7 @@ public class AuthController {
 	public ResponseEntity<JWTAuthResonseDTO> authenticateUser(@RequestBody LoginDTO loginDTO){
 		//authenticationManager iniciar proceso de Auth
 		Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginDTO.getUsername(), loginDTO.getPassword()));
-		
+
 		//le estamos indicando que el usuario ya esta autenticado 
 		//apartir de ahora aplicar autorizacion basada en roles
 		SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -42,6 +42,5 @@ public class AuthController {
 		
 		return ResponseEntity.ok(new JWTAuthResonseDTO(token));
 	}
-	
 	
 }
